@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-const key = "821beeb54e81057f162e9c1b94a3f6e6";
-const applicationId = "988a22c2";
+const key = "aa53379aea660e376fbd8ff66933999b";
+const applicationId = "3cf22443";
 
 
 //help : https://developer.flightstats.com/api-docs/
