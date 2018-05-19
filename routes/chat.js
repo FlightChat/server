@@ -1,7 +1,7 @@
-var express = require('express');
-var router = express.Router();
-var http = require('http').Server(express);
-var io = require('socket.io')(http);
+let express = require('express');
+let router = express.Router();
+let http = require('http').Server(express);
+let io = require('socket.io')(http);
 
 // router.get('/', function(req, res){
 //     res.sendFile('chat.html', { root: path.join(__dirname, '../public/views/') });
