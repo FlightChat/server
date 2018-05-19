@@ -8,7 +8,7 @@ let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
 let chatRouter = require('./routes/chat');
 let flightRouter = require('./routes/flight');
-  let testRouter = require('./routes/test')
+  let testRouter = require('./routes/test');
 
 let app = express();
 
