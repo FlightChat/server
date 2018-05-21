@@ -1,5 +1,6 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
+let userController = require('../controllers/userController');
 
 // var controller = ;
 
@@ -9,14 +10,14 @@ router.get('/', function(req, res, next) {
 });
 /* GET users listing. */
 router.get('/:id', function(req, res, next) {
-    result  =
-  res.send('respond with a resource');
+
+   res.send(userController.getUser(req.params.id));
 });
 
 
 router.post('/', function(req, res, next)
 {
-
+    return res.send(userController.addUser(req.body));
 });
 
 
