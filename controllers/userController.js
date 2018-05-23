@@ -3,7 +3,7 @@ let router = express.Router();
 let http = require('http').Server(express);
 let db = require('../models');
 let bcrypt = require('bcrypt');
-let salt = 42;
+var salt = 42;
 
 function getUser(id=null) {
     if (id != null) {
@@ -21,21 +21,21 @@ function getUser(id=null) {
 
 function addUser(params) {
     console.log(params);
-    // db.User.create({
-    //     name : params.name,
-    //     username : params.username,
-    //     password :getHash(params.password),
-    //     email : params.email
-    // });
-    getHash(params.password);
+    var build = db.User.build({
+        name : params.name,
+        username : params.username,
+        password :getHash(params.password),
+        email : params.email
+    });
+
+    var userJson = build.save();
+    return  build;
 }
 
 function getHash (pass){
-    let hashPassword = null;
+    var salty = bcrypt.genSaltSync();
     console.log('pass is ' + pass);
-    bcrypt.hash(pass, salt, function(err, hash) {
-        hashPassword =  hash;
-    });
+    var hashPassword  = bcrypt.hashSync(pass, salty);
     console.log(hashPassword);
     return hashPassword;
 }
