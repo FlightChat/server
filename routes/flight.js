@@ -62,7 +62,6 @@ router.get('/flightinfo', function(req, res, next) {
     var airportCode  =  req.query.airportCode;
     var arrivalOrDeparture  =  req.query.status;
     var date  =  req.query.date;
-    var finalUri = 'https://api.flightstats.com/flex/flightstatus/rest/v2/json/flight/status/' + companyCode+ '/' + airportCode+ '/' + arrivalOrDeparture +'/' +  date '
     console.log(finalUri);
     request({
         uri: 'https://api.flightstats.com/flex/flightstatus/rest/v2/json/flight/status/' + companyCode+ '/' + airportCode+ '/' + arrivalOrDeparture +'/' +  date ,
