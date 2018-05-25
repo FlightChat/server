@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-const key = "aa53379aea660e376fbd8ff66933999b";
-const applicationId = "3cf22443";
+const key = "4cee1615d7be357ab24a5989cc5ed52b";
+const applicationId = "53b0a504";
 
 
 //help : https://developer.flightstats.com/api-docs/
@@ -12,6 +12,7 @@ const applicationId = "3cf22443";
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+
     res.render('index', { title: 'Express' });
 });
 

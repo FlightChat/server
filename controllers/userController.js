@@ -8,7 +8,7 @@ let salt = 42;
 function getUser(id=null) {
     if (id != null) {
         db.User.findById(id).then(function (result) {
-            return result;
+            return json.result;
         });
 
     }
@@ -20,23 +20,18 @@ function getUser(id=null) {
 }
 
 function addUser(params) {
-    console.log(params);
-    // db.User.create({
-    //     name : params.name,
-    //     username : params.username,
-    //     password :getHash(params.password),
-    //     email : params.email
-    // });
-    getHash(params.password);
+    var savedUser = null;
+    var newUser = db.User.build({
+        name : params.name,
+        username : params.username,
+        password :bcrypt.hashSync(params.password,10),
+        email : params.email
+    });
+    newUser.save().then((user) => {
+        res.json(user);
+    });
+
+
 }
 
-function getHash (pass){
-    let hashPassword = null;
-    console.log('pass is ' + pass);
-    bcrypt.hash(pass, salt, function(err, hash) {
-        hashPassword =  hash;
-    });
-    console.log(hashPassword);
-    return hashPassword;
-}
 module.exports = {getUser, addUser};
